@@ -53,11 +53,11 @@ variable "aks_system_node_pool_name" {
 variable "aks_system_node_count" {
   type        = number
   description = "Initial node count for the AKS default system node pool."
-  default     = 2
+  default     = 1
 }
 
 variable "aks_system_node_vm_size" {
   type        = string
   description = "VM size for AKS default system nodes."
-  default     = "Standard_D2s_v5"
+  default     = "Standard_D2_v3"
 }

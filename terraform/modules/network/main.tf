@@ -12,15 +12,4 @@ resource "azurerm_subnet" "aks_nodes" {
 	virtual_network_name = azurerm_virtual_network.aks.name
 	address_prefixes     = var.aks_node_subnet_address_prefixes
 	service_endpoints    = ["Microsoft.ContainerRegistry", "Microsoft.Storage"]
-
-	delegation {
-		name = "aks-subnet-delegation"
-
-		service_delegation {
-			name = "Microsoft.ContainerService/managedClusters"
-			actions = [
-				"Microsoft.Network/virtualNetworks/subnets/join/action"
-			]
-		}
-	}
 }

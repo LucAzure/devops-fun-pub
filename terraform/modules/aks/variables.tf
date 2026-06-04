@@ -38,13 +38,13 @@ variable "system_node_pool_name" {
 variable "system_node_count" {
 	type        = number
 	description = "Initial number of nodes in the default system node pool."
-	default     = 2
+	default     = 1
 }
 
 variable "system_node_vm_size" {
 	type        = string
 	description = "VM size for nodes in the default system node pool."
-	default     = "Standard_D2s_v5"
+	default     = "Standard_D2_v3"
 }
 
 variable "resource_tags" {
