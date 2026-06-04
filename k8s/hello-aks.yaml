@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-aks
+  labels:
+    app: hello-aks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-aks
+  template:
+    metadata:
+      labels:
+        app: hello-aks
+    spec:
+      containers:
+        - name: hello-aks
+          image: devopsfunacr.azurecr.io/hello-aks:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "128Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-aks
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-aks
+  ports:
+    - port: 80
+      targetPort: 80

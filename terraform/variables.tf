@@ -61,3 +61,14 @@ variable "aks_system_node_vm_size" {
   description = "VM size for AKS default system nodes."
   default     = "Standard_D2_v3"
 }
+
+variable "acr_name" {
+  type        = string
+  description = "Globally unique ACR name (alphanumeric only, 5–50 chars, e.g. devopsfunacr)."
+}
+
+variable "github_actions_principal_id" {
+  type        = string
+  description = "Object ID of the GitHub Actions service principal for AcrPush. Leave null to skip."
+  default     = null
+}
